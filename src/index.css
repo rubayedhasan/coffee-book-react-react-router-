@@ -5,3 +5,13 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, silk;
 }
+
+/* common styles  */
+body {
+  color: #131313;
+}
+
+a.active {
+  font-weight: 500;
+  color: red;
+}
