@@ -1,7 +1,13 @@
+import Banner from "../components/Banner";
+
 const Home = () => {
   return (
     <div>
-      <p>Welcome Home</p>
+      {/* Banner  */}
+      <Banner></Banner>
+      {/* heading  */}
+      {/* dynamic selection tab   */}
+      {/* dynamic coffee cards  */}
     </div>
   );
 };
