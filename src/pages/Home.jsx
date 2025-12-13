@@ -1,4 +1,6 @@
+import { Outlet } from "react-router";
 import Banner from "../components/Banner";
+import Category from "../components/Category";
 import Heading from "../components/Heading";
 
 const Home = () => {
@@ -14,7 +16,10 @@ const Home = () => {
       ></Heading>
 
       {/* dynamic selection tab   */}
+      <Category></Category>
+
       {/* dynamic coffee cards  */}
+      <Outlet />
     </div>
   );
 };
