@@ -9,7 +9,7 @@ const MainLayout = () => {
       <Navbar></Navbar>
 
       {/* dynamic section container */}
-      <section className="min-h-[calc(100vh-192px)] md:min-h-[calc(100vh-160px)] py-8 lg:py-10 w-11/12 lg:w-4/5 mx-auto">
+      <section className="min-h-[calc(100vh-192px)] md:min-h-[calc(100vh-160px)] py-6 lg:py-10 w-11/12 lg:w-4/5 mx-auto">
         {/* dynamic section  */}
         <Outlet />
       </section>

@@ -27,13 +27,28 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-1.5"
             >
-              <NavLink to="/" className="text-base">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `text-base ${isActive && "font-medium text-red-500"}`
+                }
+              >
                 Home
               </NavLink>
-              <NavLink to="/coffees" className="text-base">
+              <NavLink
+                to="/coffees"
+                className={({ isActive }) =>
+                  `text-base ${isActive && "font-medium text-red-500"}`
+                }
+              >
                 Coffees
               </NavLink>
-              <NavLink to="/dashboard" className="text-base">
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  `text-base ${isActive && "font-medium text-red-500"}`
+                }
+              >
                 Dashboard
               </NavLink>
             </ul>
@@ -44,13 +59,28 @@ const Navbar = () => {
         </div>
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-8">
-            <NavLink to="/" className="text-lg">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg ${isActive && "font-medium text-red-500"}`
+              }
+            >
               Home
             </NavLink>
-            <NavLink to="/coffees" className="text-lg">
+            <NavLink
+              to="/coffees"
+              className={({ isActive }) =>
+                `text-lg ${isActive && "font-medium text-red-500"}`
+              }
+            >
               Coffees
             </NavLink>
-            <NavLink to="/dashboard" className="text-lg">
+            <NavLink
+              to="/dashboard"
+              className={({ isActive }) =>
+                `text-lg ${isActive && "font-medium text-red-500"}`
+              }
+            >
               Dashboard
             </NavLink>
           </ul>

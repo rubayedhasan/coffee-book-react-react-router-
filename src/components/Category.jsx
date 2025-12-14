@@ -2,7 +2,6 @@ import { Link, useLoaderData } from "react-router";
 
 const Category = () => {
   const categories = useLoaderData();
-  console.log(categories);
   return (
     <div
       role="tablist"
