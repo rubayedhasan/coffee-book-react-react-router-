@@ -17,7 +17,7 @@ const CoffeeLists = () => {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-8 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-8 mt-8 md:mt-10 lg:mt-12">
         {coffees.map((coffee) => (
           <Coffee key={coffee.id} coffee={coffee}></Coffee>
         ))}
@@ -26,7 +26,7 @@ const CoffeeLists = () => {
       {/* view all button  */}
       <div className="mt-6">
         <button
-          className="btn btn-warning text-yellow-50"
+          className="btn btn-error text-yellow-50"
           onClick={() => navigate("/coffees")}
           type="button"
         >
