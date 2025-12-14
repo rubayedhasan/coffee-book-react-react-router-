@@ -29,7 +29,7 @@ const Coffees = () => {
 
   return (
     <>
-      {/* section heading  */}
+      {/* section's heading  */}
       <div className="flex flex-col lg:flex-row justify-between items-center gap-3">
         <h3 className="capitalize text-base sm:text-lg md:text-xl xl:text-2xl font-semibold sm:font-medium text-center lg:text-left">
           sort coffee's by popularity & rating-&gt;
