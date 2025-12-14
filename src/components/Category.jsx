@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router";
+import { NavLink, useLoaderData } from "react-router";
 
 const Category = () => {
   const categories = useLoaderData();
@@ -8,14 +8,14 @@ const Category = () => {
       className="tabs tabs-lift grid grid-cols-3 mt-10 lg:mt-16"
     >
       {categories.map((category) => (
-        <Link
+        <NavLink
           key={category.id}
           to={`/category/${category.category}`}
           role="tab"
-          className="tab"
+          className={({ isActive }) => `tab  ${isActive && "tab-active"}`}
         >
           {category.category}
-        </Link>
+        </NavLink>
       ))}
     </div>
   );
