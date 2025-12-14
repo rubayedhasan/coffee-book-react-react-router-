@@ -5,14 +5,14 @@ const Coffee = ({ coffee }) => {
     coffee || {};
   return (
     <div className="shadow-sm p-5 rounded-md flex flex-col">
-      <figure className="flex-1 justify-center items-center">
+      <figure className="h-52 md:h-57.5 justify-center items-center">
         <img
           src={image}
           alt={name}
           className="w-full h-full rounded-md object-cover"
         />
       </figure>
-      <div className="pl-3.5 mt-4">
+      <div className="pl-3.5 mt-4 flex-1">
         <h3 className="text-lg md:text-xl font-semibold">Name: {name}</h3>
         <p className="text-base md:text-lg font-light mt-1.5">
           Category: {category}

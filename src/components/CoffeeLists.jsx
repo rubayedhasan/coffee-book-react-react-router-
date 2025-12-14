@@ -12,12 +12,12 @@ const CoffeeLists = () => {
   if (categoryName) {
     coffees = data.filter((coffee) => coffee.category === categoryName);
   } else {
-    coffees = data;
+    coffees = data.slice(0, 6);
   }
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-8 mt-12">
         {coffees.map((coffee) => (
           <Coffee key={coffee.id} coffee={coffee}></Coffee>
         ))}
