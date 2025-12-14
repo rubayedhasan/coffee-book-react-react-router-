@@ -1,10 +1,17 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router";
 
 const Coffee = ({ coffee }) => {
+  const navigate = useNavigate();
+
   const { name, image, category, type, origin, rating, popularity } =
     coffee || {};
+
   return (
-    <div className="shadow-sm p-5 rounded-md flex flex-col">
+    <div
+      className="shadow-sm p-5 rounded-md flex flex-col transition duration-500 hover:scale-105 overflow-hidden"
+      onClick={() => navigate("/coffee/coffeeId")}
+    >
       <figure className="h-52 md:h-57.5 justify-center items-center">
         <img
           src={image}

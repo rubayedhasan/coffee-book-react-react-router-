@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import Coffees from "../pages/Coffees";
 import Dashboard from "../pages/Dashboard";
+import CoffeeDetails from "../pages/CoffeeDetails";
 import CoffeeLists from "../components/CoffeeLists";
 import NoFound from "../pages/NoFound";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/coffees",
         loader: () => fetch("../coffees.json"),
         element: <Coffees></Coffees>,
+      },
+      {
+        path: "/coffee/coffeeId",
+        element: <CoffeeDetails></CoffeeDetails>,
       },
       {
         path: "/dashboard",

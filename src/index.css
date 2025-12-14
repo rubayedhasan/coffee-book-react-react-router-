@@ -12,6 +12,7 @@
 /* common styles  */
 body {
   color: #131313;
+  overflow-y: scroll;
   font-family: "Open Sans", sans-serif;
 }
 
