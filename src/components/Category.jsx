@@ -12,7 +12,11 @@ const Category = () => {
           key={category.id}
           to={`/category/${category.category}`}
           role="tab"
-          className={({ isActive }) => `tab  ${isActive && "tab-active"}`}
+          className={({ isActive }) =>
+            `tab font-medium text-sm md:text-lg ${
+              isActive && "tab-active font-semibold text-red-500"
+            }`
+          }
         >
           {category.category}
         </NavLink>
