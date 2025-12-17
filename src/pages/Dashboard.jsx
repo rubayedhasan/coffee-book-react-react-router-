@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Coffee from "../components/Coffee";
 import Heading from "../components/Heading";
-import { getTheFavorites } from "../utils/coffeeStorage";
+import { getTheFavorites, removeTheFavorite } from "../utils/coffeeStorage";
 
 const Dashboard = () => {
   const [coffees, setCoffees] = useState([]);
@@ -12,6 +12,16 @@ const Dashboard = () => {
     setCoffees(favorites);
   }, []);
 
+  // function: handler for remove the coffee
+  const handlerRemoveTheCoffee = (coffeeId) => {
+    // remove the coffee from storage
+    removeTheFavorite(coffeeId);
+
+    // reset the coffees
+    const favorites = getTheFavorites();
+    setCoffees(favorites);
+  };
+
   return (
     <>
       {/* heading  */}
@@ -21,9 +31,13 @@ const Dashboard = () => {
       ></Heading>
 
       {/* selected coffee card  */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-8 mt-8 md:mt-10 lg:mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center gap-16 mt-8 md:mt-10 lg:mt-12">
         {coffees.map((coffee) => (
-          <Coffee key={coffee.id} coffee={coffee}></Coffee>
+          <Coffee
+            key={coffee.id}
+            coffee={coffee}
+            handlerRemoveTheCoffee={handlerRemoveTheCoffee}
+          ></Coffee>
         ))}
       </div>
     </>

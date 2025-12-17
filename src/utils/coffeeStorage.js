@@ -39,4 +39,19 @@ const addTheFavorites = (product) => {
   toast.success("The Coffee is successfully add to your Favorite List!");
 };
 
-export { getTheFavorites, addTheFavorites };
+// function:: remove a product from local storage
+const removeTheFavorite = (productId) => {
+  // get the previously stored data
+  const favorites = getTheFavorites();
+
+  // filter the remaining favorites
+  const remainingFavorites = favorites.filter((p) => p.id !== productId);
+
+  //   save the favorites
+  saveTheFavorites(remainingFavorites);
+
+  //   show successful toast
+  toast.success("The Coffee is successfully Removed to your Favorite List!");
+};
+
+export { getTheFavorites, addTheFavorites, removeTheFavorite };
