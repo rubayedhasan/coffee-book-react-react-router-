@@ -1,13 +1,26 @@
 import { useLoaderData, useParams } from "react-router";
 import nutritionImg from "../assets/images/nutrition.png";
 import { FaStar, FaRegStar } from "react-icons/fa6";
-import { useState } from "react";
-import { addTheFavorites } from "../utils/coffeeStorage";
+import { useEffect, useState } from "react";
+import { getTheFavorites, addTheFavorites } from "../utils/coffeeStorage";
 
 const CoffeeDetails = () => {
   const allCoffees = useLoaderData();
   const { coffeeId } = useParams();
   const [selected, setSelected] = useState(false);
+
+  // useEffect: for initially disable the stored favorite coffee
+  useEffect(() => {
+    const storedFavorites = getTheFavorites();
+    const existFavorite = storedFavorites.find(
+      (coffee) => coffee.id === parseInt(coffeeId)
+    );
+
+    // validation: disable the stored coffee to add favorite
+    if (existFavorite) {
+      setSelected(true);
+    }
+  }, [coffeeId]);
 
   // find the match coffee object
   const singleCoffee = allCoffees.find(
@@ -30,7 +43,7 @@ const CoffeeDetails = () => {
 
   // handle favorite button
   const handleFavorite = () => {
-    setSelected(!selected);
+    setSelected(true);
 
     // store the favorite coffee
     addTheFavorites(singleCoffee);
@@ -38,9 +51,6 @@ const CoffeeDetails = () => {
 
   return (
     <div>
-      <h3 className="text-2xl md:text-4xl font-bold underline decoration-wavy decoration-2 underline-offset-2 mb-5">
-        {name}
-      </h3>
       <p className="text-lg font-light mb-3">{description}</p>
       <figure className="h-52 md:h-60 lg:h-100 w-full">
         <img
@@ -51,10 +61,11 @@ const CoffeeDetails = () => {
       </figure>
 
       <div className="flex justify-between items-center mt-5">
-        <h3 className="text-2xl md:text-3xl  font-semibold ">{origin}</h3>
+        <h3 className="text-2xl md:text-3xl  font-semibold ">{name}</h3>
 
         <div>
           <button
+            disabled={selected}
             onClick={handleFavorite}
             className="btn btn-error text-yellow-50 flex justify-center items-center transition duration-500"
             type="button"
@@ -67,7 +78,8 @@ const CoffeeDetails = () => {
         </div>
       </div>
 
-      <p className="text-base md:text-lg mt-2.5">Popularity: {popularity}</p>
+      <p className="text-base md:text-lg mt-2.5">Origin: {origin}</p>
+      <p className="text-base md:text-lg mt-1">Popularity: {popularity}</p>
       <p className="text-base md:text-lg mt-1">Rating: {rating}</p>
 
       <h4 className="text-lg md:text-xl text-rose-400 mt-6 md:mt-8 font-medium">
