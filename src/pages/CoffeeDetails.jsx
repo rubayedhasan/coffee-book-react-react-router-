@@ -2,6 +2,7 @@ import { useLoaderData, useParams } from "react-router";
 import nutritionImg from "../assets/images/nutrition.png";
 import { FaStar, FaRegStar } from "react-icons/fa6";
 import { useState } from "react";
+import { addTheFavorites } from "../utils/coffeeStorage";
 
 const CoffeeDetails = () => {
   const allCoffees = useLoaderData();
@@ -30,10 +31,16 @@ const CoffeeDetails = () => {
   // handle favorite button
   const handleFavorite = () => {
     setSelected(!selected);
+
+    // store the favorite coffee
+    addTheFavorites(singleCoffee);
   };
 
   return (
     <div>
+      <h3 className="text-2xl md:text-4xl font-bold underline decoration-wavy decoration-2 underline-offset-2 mb-5">
+        {name}
+      </h3>
       <p className="text-lg font-light mb-3">{description}</p>
       <figure className="h-52 md:h-60 lg:h-100 w-full">
         <img
@@ -75,8 +82,10 @@ const CoffeeDetails = () => {
         <div>
           <h5 className="text-base md:text-lg text-rose-400">Ingredients:</h5>
           <ul className="text-sm md:text-base list-disc list-inside mt-2">
-            {ingredients.map((item) => (
-              <li className="pl-3">{item}</li>
+            {ingredients.map((item, idx) => (
+              <li key={idx} className="pl-3">
+                {item}
+              </li>
             ))}
           </ul>
 
