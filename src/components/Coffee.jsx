@@ -7,7 +7,6 @@ const Coffee = ({ coffee, handlerRemoveTheCoffee }) => {
     coffee || {};
 
   const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <div className="relative">
